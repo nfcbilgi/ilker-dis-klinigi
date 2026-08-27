@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İlker Diş Kliniği - Ödeme Bilgileri</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #17233c;
+}
+
+.container {
+    max-width: 520px;
+    margin: auto;
+    padding: 25px 18px 40px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.header p {
+    margin: 0;
+    color: #667085;
+    font-size: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    margin: 0 0 15px;
+    font-size: 19px;
+}
+
+.iban {
+    background: #f3f6fa;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    word-break: break-word;
+    margin-bottom: 14px;
+}
+
+button {
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    padding: 14px;
+    background: #1769e0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.info {
+    text-align: center;
+    color: #667085;
+    font-size: 13px;
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>İlker Diş Kliniği</h1>
+        <p>Ödeme Bilgileri</p>
+    </div>
+
+    <div class="card">
+        <h2>Elifnaz Oduncu Şen</h2>
+
+        <div class="iban" id="iban1">
+            TR39 0001 5001 5800 7368 4277 00
+        </div>
+
+        <button onclick="copyIBAN('iban1', this)">
+            IBAN'I KOPYALA
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>Furkan Yasin Şen</h2>
+
+        <div class="iban" id="iban2">
+            TR66 0001 5001 5800 7375 1492 17
+        </div>
+
+        <button onclick="copyIBAN('iban2', this)">
+            IBAN'I KOPYALA
+        </button>
+    </div>
+
+    <div class="info">
+        IBAN bilgisini kopyalayıp bankacılık uygulamanızda kullanabilirsiniz.
+    </div>
+
+</div>
+
+<script>
+function copyIBAN(id, button) {
+
+    const iban = document.getElementById(id).innerText.trim();
+
+    navigator.clipboard.writeText(iban).then(function() {
+
+        const oldText = button.innerText;
+        button.innerText = "✓ KOPYALANDI";
+
+        setTimeout(function() {
+            button.innerText = oldText;
+        }, 2000);
+
+    }).catch(function() {
+        alert("IBAN: " + iban);
+    });
+}
+</script>
+
+</body>
+</html>
