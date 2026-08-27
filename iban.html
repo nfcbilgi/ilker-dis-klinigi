@@ -7,7 +7,6 @@
 <title>İlker Diş Kliniği - Ödeme Bilgileri</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -25,8 +24,6 @@ body {
     margin: auto;
     padding: 35px 18px 45px;
 }
-
-/* BAŞLIK */
 
 .header {
     text-align: center;
@@ -51,8 +48,6 @@ body {
     font-weight: 600;
 }
 
-/* KART */
-
 .card {
     background: white;
     border-radius: 22px;
@@ -74,8 +69,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* IBAN */
-
 .iban {
     background: #f4f8fd;
     border: 2px solid #b9d5ff;
@@ -85,22 +78,21 @@ body {
     font-size: 19px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     word-break: break-word;
 }
-
-/* BUTON */
 
 button {
     width: 100%;
     border: none;
     border-radius: 13px;
-    padding: 17px;
+    padding: 16px;
     background: #075bd8;
     color: white;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 800;
     cursor: pointer;
+    margin-top: 8px;
 }
 
 button:active {
@@ -111,7 +103,9 @@ button.copied {
     background: #198754;
 }
 
-/* BİLGİ */
+.name-button {
+    background: #5278b8;
+}
 
 .info {
     background: #eef6ff;
@@ -125,8 +119,6 @@ button.copied {
     margin-top: 8px;
 }
 
-/* ALT */
-
 .footer {
     text-align: center;
     margin-top: 28px;
@@ -138,7 +130,6 @@ button.copied {
     font-size: 32px;
     margin-top: 15px;
 }
-
 </style>
 </head>
 
@@ -147,17 +138,13 @@ button.copied {
 <div class="container">
 
     <div class="header">
-
         <div class="tooth">🦷</div>
-
         <h1>İlker Diş Kliniği</h1>
-
         <p>Ödeme Bilgileri</p>
-
     </div>
 
 
-    <!-- FURKAN -->
+    <!-- FURKAN YASİN ŞEN -->
 
     <div class="card">
 
@@ -173,14 +160,20 @@ button.copied {
             TR39 0001 5001 5800 7368 4277 00
         </div>
 
-        <button onclick="copyIBAN('ibanFurkan', this)">
+        <button class="name-button"
+                onclick="copyText('Furkan Yasin Şen', this)">
+            İSMİ KOPYALA
+        </button>
+
+        <button
+            onclick="copyText('TR39 0001 5001 5800 7368 4277 00', this)">
             IBAN'I KOPYALA
         </button>
 
     </div>
 
 
-    <!-- ELİFNAZ -->
+    <!-- ELİFNAZ ODUNCU ŞEN -->
 
     <div class="card">
 
@@ -196,7 +189,13 @@ button.copied {
             TR66 0001 5001 5800 7375 1492 17
         </div>
 
-        <button onclick="copyIBAN('ibanElifnaz', this)">
+        <button class="name-button"
+                onclick="copyText('Elifnaz Oduncu Şen', this)">
+            İSMİ KOPYALA
+        </button>
+
+        <button
+            onclick="copyText('TR66 0001 5001 5800 7375 1492 17', this)">
             IBAN'I KOPYALA
         </button>
 
@@ -204,19 +203,17 @@ button.copied {
 
 
     <div class="info">
-        ℹ️ IBAN bilgisini kopyalayıp
-        bankacılık uygulamanızda kullanabilirsiniz.
+        ℹ️ İsim ve IBAN bilgilerini ayrı ayrı
+        kopyalayarak bankacılık uygulamanızda kullanabilirsiniz.
     </div>
 
 
     <div class="footer">
-
         Güvenli ve hızlı ödeme
 
         <div class="footer-tooth">
             🦷
         </div>
-
     </div>
 
 </div>
@@ -224,14 +221,9 @@ button.copied {
 
 <script>
 
-function copyIBAN(id, button) {
+function copyText(text, button) {
 
-    const iban = document
-        .getElementById(id)
-        .innerText
-        .trim();
-
-    navigator.clipboard.writeText(iban)
+    navigator.clipboard.writeText(text)
     .then(function() {
 
         const oldText = button.innerText;
@@ -249,7 +241,7 @@ function copyIBAN(id, button) {
     })
     .catch(function() {
 
-        alert("IBAN: " + iban);
+        alert("Kopyalanacak bilgi: " + text);
 
     });
 
