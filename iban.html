@@ -3,75 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>İlker Diş Kliniği - Ödeme Bilgileri</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #17233c;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8fd;
+    color: #10244a;
 }
 
 .container {
-    max-width: 520px;
+    width: 100%;
+    max-width: 600px;
     margin: auto;
-    padding: 25px 18px 40px;
+    padding: 35px 18px 45px;
 }
+
+/* BAŞLIK */
 
 .header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
+}
+
+.tooth {
+    font-size: 58px;
+    margin-bottom: 8px;
 }
 
 .header h1 {
-    margin: 0 0 8px;
-    font-size: 28px;
+    margin: 0;
+    font-size: 34px;
+    font-weight: 800;
 }
 
 .header p {
-    margin: 0;
+    margin: 12px 0 0;
+    font-size: 24px;
     color: #667085;
-    font-size: 15px;
+    font-weight: 600;
 }
+
+/* KART */
 
 .card {
     background: white;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 18px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 22px;
+    padding: 28px 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 25px rgba(16, 36, 74, 0.10);
 }
 
-.card h2 {
-    margin: 0 0 15px;
-    font-size: 19px;
+.name {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 12px;
 }
+
+.label {
+    font-size: 17px;
+    color: #667085;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* IBAN */
 
 .iban {
-    background: #f3f6fa;
-    border-radius: 10px;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: bold;
+    background: #f4f8fd;
+    border: 2px solid #b9d5ff;
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
     letter-spacing: 0.5px;
+    margin-bottom: 16px;
     word-break: break-word;
-    margin-bottom: 14px;
 }
+
+/* BUTON */
 
 button {
     width: 100%;
-    border: 0;
-    border-radius: 10px;
-    padding: 14px;
-    background: #1769e0;
+    border: none;
+    border-radius: 13px;
+    padding: 17px;
+    background: #075bd8;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 800;
     cursor: pointer;
 }
 
@@ -79,12 +107,38 @@ button:active {
     transform: scale(0.98);
 }
 
-.info {
-    text-align: center;
-    color: #667085;
-    font-size: 13px;
-    margin-top: 25px;
+button.copied {
+    background: #198754;
 }
+
+/* BİLGİ */
+
+.info {
+    background: #eef6ff;
+    border: 1px solid #d4e6ff;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    color: #344054;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 8px;
+}
+
+/* ALT */
+
+.footer {
+    text-align: center;
+    margin-top: 28px;
+    color: #667085;
+    font-size: 14px;
+}
+
+.footer-tooth {
+    font-size: 32px;
+    margin-top: 15px;
+}
+
 </style>
 </head>
 
@@ -93,58 +147,114 @@ button:active {
 <div class="container">
 
     <div class="header">
+
+        <div class="tooth">🦷</div>
+
         <h1>İlker Diş Kliniği</h1>
+
         <p>Ödeme Bilgileri</p>
+
     </div>
 
-    <div class="card">
-        <h2>Elifnaz Oduncu Şen</h2>
 
-        <div class="iban" id="iban1">
+    <!-- FURKAN -->
+
+    <div class="card">
+
+        <div class="name">
+            Furkan Yasin Şen
+        </div>
+
+        <div class="label">
+            IBAN
+        </div>
+
+        <div class="iban" id="ibanFurkan">
             TR39 0001 5001 5800 7368 4277 00
         </div>
 
-        <button onclick="copyIBAN('iban1', this)">
+        <button onclick="copyIBAN('ibanFurkan', this)">
             IBAN'I KOPYALA
         </button>
+
     </div>
 
-    <div class="card">
-        <h2>Furkan Yasin Şen</h2>
 
-        <div class="iban" id="iban2">
+    <!-- ELİFNAZ -->
+
+    <div class="card">
+
+        <div class="name">
+            Elifnaz Oduncu Şen
+        </div>
+
+        <div class="label">
+            IBAN
+        </div>
+
+        <div class="iban" id="ibanElifnaz">
             TR66 0001 5001 5800 7375 1492 17
         </div>
 
-        <button onclick="copyIBAN('iban2', this)">
+        <button onclick="copyIBAN('ibanElifnaz', this)">
             IBAN'I KOPYALA
         </button>
+
     </div>
 
+
     <div class="info">
-        IBAN bilgisini kopyalayıp bankacılık uygulamanızda kullanabilirsiniz.
+        ℹ️ IBAN bilgisini kopyalayıp
+        bankacılık uygulamanızda kullanabilirsiniz.
+    </div>
+
+
+    <div class="footer">
+
+        Güvenli ve hızlı ödeme
+
+        <div class="footer-tooth">
+            🦷
+        </div>
+
     </div>
 
 </div>
 
+
 <script>
+
 function copyIBAN(id, button) {
 
-    const iban = document.getElementById(id).innerText.trim();
+    const iban = document
+        .getElementById(id)
+        .innerText
+        .trim();
 
-    navigator.clipboard.writeText(iban).then(function() {
+    navigator.clipboard.writeText(iban)
+    .then(function() {
 
         const oldText = button.innerText;
+
         button.innerText = "✓ KOPYALANDI";
+        button.classList.add("copied");
 
         setTimeout(function() {
+
             button.innerText = oldText;
+            button.classList.remove("copied");
+
         }, 2000);
 
-    }).catch(function() {
+    })
+    .catch(function() {
+
         alert("IBAN: " + iban);
+
     });
+
 }
+
 </script>
 
 </body>
